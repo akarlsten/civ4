@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useLoader } from '@react-three/fiber'
 import { OrbitControls, Preload } from '@react-three/drei'
 import useStore from '@/helpers/store'
 import { useEffect, useRef } from 'react'
@@ -25,9 +25,9 @@ const LCanvas = ({ children }) => {
         position: 'absolute',
         top: 0,
       }}
-      onCreated={(state) => state.events.connect(dom.current)}
+    // onCreated={(state) => state.events.connect(dom.current)}
     >
-      <LControl />
+      {/* <LControl /> */}
       <Preload all />
       {children}
     </Canvas>

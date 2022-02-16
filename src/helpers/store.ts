@@ -7,4 +7,8 @@ const useStore = create(() => {
   }
 })
 
+export const mutation = {
+
+}
+
 export default useStore

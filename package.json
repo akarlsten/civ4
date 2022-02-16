@@ -13,6 +13,8 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@react-three/drei": "^8.8.1",
     "@react-three/fiber": "^7.0.26",
+    "@types/three": "^0.137.0",
+    "@u-wave/react-youtube": "^0.7.2",
     "babel-plugin-glsl": "^1.0.0",
     "babel-plugin-styled-components": "^2.0.2",
     "glsl-random": "^0.0.5",
@@ -21,7 +23,8 @@
     "react-dom": "^17.0.2",
     "short-uuid": "^4.2.0",
     "three": "^0.137.5",
-    "three-stdlib": "^2.8.5"
+    "three-stdlib": "^2.8.5",
+    "twind": "^0.16.16"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.0.10",
