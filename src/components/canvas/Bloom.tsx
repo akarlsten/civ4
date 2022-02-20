@@ -16,6 +16,7 @@ function Bloom({ children }) {
   const composer = useRef<EffectComposer>()
   useEffect(() => void scene && composer.current.setSize(size.width, size.height), [size, scene])
   useFrame(() => {
+    camera.layers.set(0)
     scene && composer.current.render()
   }, 1)
   return (

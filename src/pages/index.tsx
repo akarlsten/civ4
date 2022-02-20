@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
 
-const Scene = dynamic(() => import('@/components/canvas/Scene'), {
+const Scene = dynamic(() => import('@/components/canvas/LayeredScene'), {
   ssr: false,
 })
 
@@ -44,7 +44,7 @@ const DOM = () => {
 const R3F = () => {
   return (
     <>
-      <Scene route='' />
+      <Scene />
     </>
   )
 }

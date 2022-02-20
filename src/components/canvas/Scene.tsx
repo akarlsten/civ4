@@ -1,14 +1,16 @@
 import useStore from '@/helpers/store'
-import { useTexture, Stars, Plane, shaderMaterial } from '@react-three/drei'
+import { useTexture, Stars, Plane, shaderMaterial, Preload } from '@react-three/drei'
 import { extend, useFrame, useThree } from '@react-three/fiber'
 import { useLayoutEffect, useRef, useState, useCallback, Suspense } from 'react'
-import { FrontSide, BackSide, MirroredRepeatWrapping, Vector3, Color, MeshStandardMaterial, NormalBlending, AdditiveBlending, Texture, Euler, Quaternion, MathUtils } from 'three'
+import { FrontSide, BackSide, MirroredRepeatWrapping, Vector3, Color, MeshStandardMaterial, NormalBlending, AdditiveBlending, Texture, Euler, Quaternion, MathUtils, MeshBasicMaterial, Vector2 } from 'three'
 import guid from 'short-uuid'
 
 import atmosFrag from './glsl/atmos.frag'
 import atmosVertex from './glsl/atmos.vert'
 import sunFrag from './glsl/glow.frag'
 import sunVert from './glsl/glow.vert'
+import blurVert from './glsl/blur.vert'
+import blurFrag from './glsl/blur.frag'
 
 import Effects from './Effects'
 import Bloom from './Bloom'
@@ -52,6 +54,7 @@ SunMaterial.key = guid.generate()
 
 extend({ SunMaterial })
 
+
 const atmosShaderBeforeCompile = shader => {
   shader.fragmentShader = shader.fragmentShader.replace(`#include <output_fragment>`,
     `
@@ -67,7 +70,6 @@ const atmosShaderBeforeCompile = shader => {
           `
   )
 }
-
 
 const earthShaderCreator = (earthUniforms) => {
   return (shader) => {
@@ -183,6 +185,7 @@ const Scene = () => {
   const sunAtmosMesh = useRef(null)
   const lightMesh = useRef(null)
   const cityMesh = useRef(null)
+  const cityBlurMesh = useRef(null)
   const sunLight = useRef(null)
 
   const cameraSet = useRef(false)
@@ -351,6 +354,7 @@ const Scene = () => {
   // Return the view, these are regular Threejs elements expressed in JSX
   return (
     <Suspense fallback={null}>
+      <Preload all />
       <Main>
         <ambientLight color={0x364e70} intensity={0.8} />
         <group>
@@ -458,4 +462,5 @@ const Scene = () => {
     </Suspense>
   )
 }
+
 export default Scene

@@ -16,7 +16,6 @@ const LControl = () => {
   return <OrbitControls ref={control} domElement={dom.current} />
 }
 const LCanvas = ({ children }) => {
-  const dom = useStore((state) => state.dom)
 
   return (
     <Canvas
@@ -28,7 +27,6 @@ const LCanvas = ({ children }) => {
     // onCreated={(state) => state.events.connect(dom.current)}
     >
       {/* <LControl /> */}
-      <Preload all />
       {children}
     </Canvas>
   )
