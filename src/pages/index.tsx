@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
 
-const Scene = dynamic(() => import('@/components/canvas/LayeredScene'), {
+const Scene = dynamic(() => import('@/components/canvas/Scene'), {
   ssr: false,
 })
 
@@ -20,18 +20,9 @@ const Overlay = dynamic(() => import('@/components/dom/Overlay'), {
 
 // dom components goes here
 const DOM = () => {
-  const [hasLoaded, setHasLoaded] = useState(false)
-  // const { active, progress } = useProgress()
 
-  // useEffect(() => {
-  //   if (progress >= 100) {
-  //     setHasLoaded(true)
-  //   }
-  // }, [progress])
 
   return (
-    // Step 5 - delete Instructions components
-    // <Instructions />
     <>
       <Overlay />
       <div className='hidden'>
