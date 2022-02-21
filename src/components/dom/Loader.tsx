@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { tw } from 'twind'
 
-const defaultDataInterpolation = (p) => `Loading: ${isNaN(p) ? 0 : p.toFixed(0)}%`
+const defaultDataInterpolation = (p) => `${isNaN(p) ? 0 : p.toFixed(0)}%`
 
 export default function CustomLoader({ active, progress, dataInterpolation = defaultDataInterpolation }) {
   const progressRef = React.useRef(0)
@@ -62,8 +62,7 @@ const styles = {
   data: {
     fontVariantNumeric: 'tabular-nums',
     marginTop: '0.5rem',
-    color: '#f0f0f0',
-    fontSize: '2em',
-    fontFamily: `monospace`,
+    color: 'rgb(251 191 36)',
+    fontSize: '2em'
   },
 }

@@ -41,8 +41,6 @@ export default function Effects() {
   }, [size])
 
   useFrame((state, delta) => {
-    gl.autoClear = false
-
     camera.layers.set(Layers.BG)
     bgComposer.current.render()
 
@@ -63,7 +61,7 @@ export default function Effects() {
       <effectComposer ref={bgComposer} args={[gl, bgRenderTarget]} renderToScreen={false}>
         <renderPass attachArray="passes" scene={scene} camera={camera} />
         {/* @ts-ignore */}
-        <unrealBloomPass attachArray="passes" args={[undefined, 2, 1, 0.9]} />
+        <unrealBloomPass attachArray="passes" args={[undefined, 2.5, 1, 0.9]} />
         <shaderPass attachArray="passes" args={[CopyShader]} />
       </effectComposer>
       <effectComposer ref={ffgComposer} args={[gl, ffgRenderTarget]} renderToScreen={false}>
