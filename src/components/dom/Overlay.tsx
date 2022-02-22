@@ -48,9 +48,9 @@ const Overlay = () => {
               {!hasStarted && (
                 <div className={tw`flex h-full items-center justify-center`}>
                   <button
-                    className={tw`py-4 px-8 text-5xl rounded-md bg-amber-400 hover:bg-amber-500`}
+                    className={tw`py-4 px-8 text-5xl font-bold rounded-md bg-amber-400 hover:bg-amber-500`}
                     style={{ color: 'black', marginBottom: '30rem' }}
-                    onClick={() => setHasStarted(true)}>Start</button>
+                    onClick={() => setHasStarted(true)}>START</button>
                 </div>
               )}
             </div>

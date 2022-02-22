@@ -8,7 +8,7 @@ const useStore = create(() => {
 })
 
 export const mutation = {
-
+  rotation: -1
 }
 
 export default useStore

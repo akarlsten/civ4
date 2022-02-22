@@ -20,23 +20,15 @@ const Overlay = dynamic(() => import('@/components/dom/Overlay'), {
 
 // dom components goes here
 const DOM = () => {
-
-
   return (
-    <>
-      <Overlay />
-      <div className='hidden'>
-      </div>
-    </>
+    <Overlay />
   )
 }
 
 // canvas components goes here
 const R3F = () => {
   return (
-    <>
-      <Scene />
-    </>
+    <Scene />
   )
 }
 
@@ -53,7 +45,7 @@ const Page = () => {
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Index',
+      title: 'Civ4 - Redux',
     },
   }
 }

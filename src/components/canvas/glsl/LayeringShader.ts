@@ -1,7 +1,7 @@
 export default {
   uniforms: {
     tDiffuse: { value: null },
-    tAdd: { value: null },
+    tOne: { value: null },
     tTwo: { value: null },
     tThree: { value: null }
   },
@@ -15,14 +15,14 @@ export default {
 
   fragmentShader: `
     uniform sampler2D tDiffuse;
-    uniform sampler2D tAdd;
+    uniform sampler2D tOne;
     uniform sampler2D tTwo;
     uniform sampler2D tThree;
 
     varying vec2 vUv;
     void main() {
       vec4 cities = texture2D( tDiffuse, vUv );
-      vec4 earth = texture2D( tAdd, vUv );
+      vec4 earth = texture2D( tOne, vUv );
       vec4 space = texture2D( tTwo, vUv);
       vec4 atmosphere = texture2D( tThree, vUv);
 
