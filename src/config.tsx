@@ -1,10 +1,10 @@
 import Head from 'next/head'
 
-const titleDefault = 'React Three Next Starter'
-const url = 'https://react-three-next.vercel.app/'
+const titleDefault = 'Civ 4 - Redux'
+const url = 'https://civ4.adamkarlsten.com'
 const description =
-  'The easiest and fastest way to create a 3D website using React Three Fiber and NextJS'
-const author = 'Author'
+  'A remake of the Civ4 intro screen'
+const author = 'Adam Karlsten'
 
 const Header = ({ title = titleDefault }) => {
   return (
@@ -23,7 +23,7 @@ const Header = ({ title = titleDefault }) => {
         <meta name='description' content={description} />
         <meta
           name='keywords'
-          content='Software Engineer,Product Manager,Project Manager,Data Scientist,Computer Scientist'
+          content='Civilization, THREE.js, react-three-fiber, Baba Yetu'
         />
         <meta name='robots' content='index,follow' />
         <meta name='distribution' content='web' />
@@ -33,7 +33,7 @@ const Header = ({ title = titleDefault }) => {
         <meta name='og:title' content={title} />
         <meta name='og:type' content='site' />
         <meta name='og:url' content={url} />
-        <meta name='og:image' content={'/icons/share.png'} />
+        <meta name='og:image' content={'/icons/android-chrome-96x96.png'} />
         <meta name='og:site_name' content={title} />
         <meta name='og:description' content={description} />
 
@@ -54,12 +54,7 @@ const Header = ({ title = titleDefault }) => {
           href='/icons/apple-touch-icon.png'
         />
         <link rel='manifest' href='/manifest.json' />
-        <link
-          rel='mask-icon'
-          color='#000000'
-          href='/icons/safari-pinned-tab.svg'
-        />
-        <link rel='apple-touch-startup-image' href='/startup.png' />
+
 
         {/* Meta Tags for HTML pages on Mobile */}
         {/* <meta name="format-detection" content="telephone=yes"/>
@@ -76,7 +71,7 @@ const Header = ({ title = titleDefault }) => {
         documentation: https://dev.twitter.com/cards/getting-started
         Be sure validate your Twitter card markup on the documentation site. */}
         <meta name='twitter:card' content='summary' />
-        <meta name='twitter:site' content='@onirenaud' />
+        <meta name='twitter:site' content='@adamka_' />
       </Head>
     </>
   )
