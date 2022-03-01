@@ -6,8 +6,11 @@ import YouTube from '@u-wave/react-youtube'
 
 import Loader from './Loader'
 import InfoDialog from './InfoDialog'
+import useStore, { mutation } from '@/helpers/store'
 
 const Overlay = () => {
+  const night = useStore(state => state.night)
+
   const [muted, setMuted] = useState(false)
 
   const [shown, setShown] = useState(true)
@@ -42,8 +45,13 @@ const Overlay = () => {
             </div>
           ) : (
             <div className={tw`w-screen h-screen`} style={{ backgroundColor: hasStarted ? 'transparent' : '#141622' }}>
-              <div className='flex justify-center pt-8'>
-                <Image priority alt='logo' src={'/img/civ4up.jpg'} width={1600} height={400} />
+              <div className='flex justify-center'>
+                <div style={{ opacity: !night ? 1 : 0, transition: 'opacity 2000ms ease' }} className='absolute flex justify-center'>
+                  <Image priority alt='logo' src={'/img/civ4up.jpg'} width={1600} height={400} />
+                </div>
+                <div style={{ opacity: night ? 1 : 0, filter: `hue-rotate(190deg)`, transition: 'opacity 2000ms ease' }} className='absolute flex justify-center'>
+                  <Image priority alt='logo' src={'/img/civ4up.jpg'} width={1600} height={400} />
+                </div>
               </div>
               {!hasStarted && (
                 <div className={tw`flex h-full items-center justify-center`}>

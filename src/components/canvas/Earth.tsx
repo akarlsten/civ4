@@ -3,7 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
 
 import { Layers } from './Effects'
-import { mutation } from '@/helpers/store'
+import useStore, { mutation } from '@/helpers/store'
 
 // atmos values: 0.1 0.2 1.0
 const atmosShaderBeforeCompile = shader => {
@@ -24,6 +24,9 @@ const atmosShaderBeforeCompile = shader => {
 }
 
 const Earth = () => {
+  const setDay = useStore(state => state.setDay)
+  const setNight = useStore(state => state.setNight)
+  const night = useStore(state => state.night)
   const earthMesh = useRef(null)
   const cloudMesh = useRef(null)
   const lightMesh = useRef(null)
@@ -55,6 +58,8 @@ const Earth = () => {
     }
     if (sunLight.current) {
       if (mutation.rotation < -2.0 && mutation.rotation > -3.6) { // night but with some
+
+
         if (sunLight.current.intensity - 1 * delta * 3 < 0) {
           sunLight.current.intensity = 0
         } else {
@@ -71,12 +76,18 @@ const Earth = () => {
 
     if (ambientRef.current) {
       if (mutation.rotation < -1.2 && mutation.rotation > -3.4) {
+        if (!night) {
+          setNight()
+        }
         if (ambientRef.current.intensity - 1 * delta * 3 > 2.3) {
           ambientRef.current.intensity = 2.3
         } else {
           ambientRef.current.intensity += 1 * delta * 3
         }
       } else {
+        if (night) {
+          setDay()
+        }
         if (ambientRef.current.intensity + 1 * delta * 3 < 1.0) {
           ambientRef.current.intensity = 1.0
         } else {
