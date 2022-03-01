@@ -46,15 +46,15 @@ const Overlay = () => {
           ) : (
             <div className={tw`w-screen h-screen`} style={{ backgroundColor: hasStarted ? 'transparent' : '#141622' }}>
               <div className='flex justify-center'>
-                <div style={{ opacity: !night ? 1 : 0, transition: 'opacity 2000ms ease' }} className='absolute flex justify-center'>
+                <div style={{ opacity: !hasStarted || !night ? 1 : 0, transition: 'opacity 2000ms ease' }} className='absolute flex justify-center'>
                   <Image priority alt='logo' src={'/img/civ4up.jpg'} width={1600} height={400} />
                 </div>
-                <div style={{ opacity: night ? 1 : 0, filter: `hue-rotate(190deg)`, transition: 'opacity 2000ms ease' }} className='absolute flex justify-center'>
+                <div style={{ opacity: night && hasStarted ? 1 : 0, filter: `hue-rotate(190deg)`, transition: 'opacity 2000ms ease' }} className='absolute flex justify-center'>
                   <Image priority alt='logo' src={'/img/civ4up.jpg'} width={1600} height={400} />
                 </div>
               </div>
               {!hasStarted && (
-                <div className={tw`flex h-full items-center justify-center`}>
+                <div className={tw`flex h-full items-center justify-center mt-96`}>
                   <button
                     className={tw`py-4 px-8 text-5xl font-bold rounded-md bg-amber-400 hover:bg-amber-500`}
                     style={{ color: 'black', marginBottom: '30rem' }}
